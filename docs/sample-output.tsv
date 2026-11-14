@@ -1,0 +1,14 @@
+# 7 PDF files, 13 findings
+high	PDF001	js-openaction.pdf	JavaScript present (2 reference(s)): script runs inside the viewer
+high	PDF003	js-openaction.pdf	automatic action on open or on events (1), combined with script or launch
+high	PDF002	launch.pdf	Launch action present (1): can start a program or open a file
+high	PDF003	launch.pdf	automatic action on open or on events (1), combined with script or launch
+high	PDF001	obfuscated.pdf	JavaScript present (2 reference(s)): script runs inside the viewer
+high	PDF003	obfuscated.pdf	automatic action on open or on events (1), combined with script or launch
+high	PDF006	obfuscated.pdf	names written with #xx escapes to avoid simple scanners: /JavaScript
+medium	PDF004	embedded.pdf	embedded file(s): 1, extract and triage them separately
+medium	PDF005	embedded.pdf	2 URI reference(s): check destinations against threat intelligence
+medium	PDF007	objstm.pdf	legacy viewer attack surface: /RichMedia
+low	PDF008	incremental.pdf	encrypted; 2 %%EOF markers (incremental updates); data after the last %%EOF
+low	PDF009	objstm.pdf	object streams (1): objects inside compressed streams are not inspected by this tool
+info	PDF000	fake.pdf	not a PDF (no %PDF- header in the first 1024 bytes)

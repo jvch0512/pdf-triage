@@ -1,0 +1,16 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Names << /EmbeddedFiles 5 0 R >> >>
+endobj
+5 0 obj
+<< /Type /EmbeddedFile /Length 5 >>
+stream
+/JS 1
+endstream
+endobj
+6 0 obj
+<< /S /URI /URI (http://example.test/a) >>
+endobj
+trailer
+<< /Root 1 0 R >>
+%%EOF
