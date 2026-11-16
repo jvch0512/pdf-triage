@@ -2,6 +2,8 @@
 
 pdf-triage reads PDF files without rendering or executing them and lists the features that matter in phishing and malware triage: JavaScript, automatic actions on open, launch actions, embedded files, form submission, legacy attack surface such as XFA and RichMedia, names hidden with hex escapes (`/J#61vaScript`), and files with several incremental updates or data after the last `%%EOF`. Every finding says what to look at next.
 
+![Terminal demo of pdf-triage on its sample data](docs/demo.svg)
+
 **Live demo:** https://jvch0512.github.io/pdf-triage/ (Hand-written minimal PDFs, no real malware.)
 
 C++17, standard library only. The demo page is rendered from the tool's `--tsv` output by `scripts/site.py` (Python 3, only needed to regenerate the page).
@@ -50,3 +52,13 @@ make test    # 65 checks
 ```
 
 MIT.
+
+## Code scanning (SARIF)
+
+`scripts/tsv2sarif.py` converts the `--tsv` output into SARIF 2.1.0, so findings show up in GitHub code scanning:
+
+```sh
+./pdf-triage examples --tsv | python3 scripts/tsv2sarif.py --tool pdf-triage --prefix examples > results.sarif
+```
+
+Upload `results.sarif` with `github/codeql-action/upload-sarif`. Severities map to SARIF levels (critical and high to error, medium to warning, low and info to note) and to a `security-severity` score.
